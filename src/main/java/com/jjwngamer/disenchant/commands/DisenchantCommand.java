@@ -1,5 +1,6 @@
 package com.jjwngamer.disenchant.commands;
 
+import com.jjwngamer.disenchant.Disenchant;
 import com.jjwngamer.disenchant.Utils.GuiUtil;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -11,7 +12,7 @@ public class DisenchantCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String s, String[] strings) {
 
         if(!(sender instanceof Player)){
-            System.out.println("Only players can use this command.");
+            System.out.println(Disenchant.getInsance().getConfig().getString("no-console"));
             return true;
         }
 
