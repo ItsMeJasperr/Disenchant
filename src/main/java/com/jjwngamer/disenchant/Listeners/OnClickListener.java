@@ -1,6 +1,8 @@
 package com.jjwngamer.disenchant.Listeners;
 
+import com.jjwngamer.disenchant.Disenchant;
 import com.jjwngamer.disenchant.Utils.GuiUtil;
+import com.jjwngamer.disenchant.Utils.Utils;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
@@ -29,7 +31,7 @@ public class OnClickListener implements Listener {
 
         if (enchantment != null) {
             player.getItemInHand().removeEnchantment(enchantment);
-            player.sendMessage("Successfully removed enchantment.");
+            player.sendMessage(Utils.color(Disenchant.getInsance().getConfig().getString("remove-enchant")));
             if(player.getItemInHand().getEnchantments().isEmpty()){
                 player.closeInventory();
                 return;
@@ -37,7 +39,7 @@ public class OnClickListener implements Listener {
             GuiUtil.Gui(player);
 
         } else {
-            player.sendMessage("Failed to remove enchantment. Invalid enchantment name.");
+            player.sendMessage(Utils.color(Disenchant.getInsance().getConfig().getString("fail-remove")));
         }
     }
 }

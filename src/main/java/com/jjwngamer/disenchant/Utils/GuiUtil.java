@@ -1,5 +1,6 @@
 package com.jjwngamer.disenchant.Utils;
 
+import com.jjwngamer.disenchant.Disenchant;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -17,7 +18,7 @@ public class GuiUtil {
 
         ItemStack itemInHand = player.getInventory().getItemInMainHand();
         if(itemInHand.getEnchantments().isEmpty()){
-            player.sendMessage("You must be holding an item to disenchant.");
+            player.sendMessage(Utils.color(Disenchant.getInsance().getConfig().getString("no-enchants")));
             return;
         }
         if (itemInHand.getType() != Material.AIR) {
@@ -35,10 +36,9 @@ public class GuiUtil {
             }
 
             gui.setItem(9, itemInHand);
-
             player.openInventory(gui);
         } else {
-            player.sendMessage("You must be holding an item to disenchant.");
+            player.sendMessage(Utils.color(Disenchant.getInsance().getConfig().getString("no-item")));
         }
     }
 }

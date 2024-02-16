@@ -1,0 +1,4 @@
+no-enchants: "&7This item has no enchants."
+no-item: "&7You must be holding an item to disenchant."
+remove-enchant: "&7Successfully removed enchantment."
+fail-remove: "&7Failed to remove enchantment. Invalid enchantment name."
