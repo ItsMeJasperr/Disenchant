@@ -1,4 +1,4 @@
-package com.jjwngamer.disenchant.Utils;
+package com.jjwngamer.disenchant.utils;
 
 import org.bukkit.ChatColor;
 

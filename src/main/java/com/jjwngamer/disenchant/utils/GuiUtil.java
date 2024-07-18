@@ -1,4 +1,4 @@
-package com.jjwngamer.disenchant.Utils;
+package com.jjwngamer.disenchant.utils;
 
 import com.jjwngamer.disenchant.Disenchant;
 import org.bukkit.Bukkit;

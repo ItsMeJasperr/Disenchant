@@ -1,8 +1,8 @@
-package com.jjwngamer.disenchant.Listeners;
+package com.jjwngamer.disenchant.listeners;
 
 import com.jjwngamer.disenchant.Disenchant;
-import com.jjwngamer.disenchant.Utils.GuiUtil;
-import com.jjwngamer.disenchant.Utils.Utils;
+import com.jjwngamer.disenchant.utils.GuiUtil;
+import com.jjwngamer.disenchant.utils.Utils;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
@@ -13,7 +13,10 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
 public class OnClickListener implements Listener {
-
+    private Disenchant main;
+    public OnClickListener(Disenchant main){
+        this.main = main;
+    }
     @EventHandler
     public void onClick(InventoryClickEvent event) {
         event.setCancelled(true);
@@ -31,7 +34,7 @@ public class OnClickListener implements Listener {
 
         if (enchantment != null) {
             player.getItemInHand().removeEnchantment(enchantment);
-            player.sendMessage(Utils.color(Disenchant.getInsance().getConfig().getString("remove-enchant")));
+            player.sendMessage(Utils.color(main.getConfig().getString("remove-enchant")));
             if(player.getItemInHand().getEnchantments().isEmpty()){
                 player.closeInventory();
                 return;
@@ -39,7 +42,7 @@ public class OnClickListener implements Listener {
             GuiUtil.Gui(player);
 
         } else {
-            player.sendMessage(Utils.color(Disenchant.getInsance().getConfig().getString("fail-remove")));
+            player.sendMessage(Utils.color(main.getConfig().getString("fail-remove")));
         }
     }
 }
